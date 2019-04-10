@@ -25,7 +25,7 @@
         <b-carousel-slide
           img-src="https://d2y4mhrku00tr3.cloudfront.net/images/pages/about/team-logos-40f002676ef0d61a27cee08d85358575bee03e5b2374f52d2fa1b2b7fb0f061ada398c1c99e32189c64d9628b21b091f939c84ed6066ad179193de6a6305e004.jpg"
         >
-          <caption class="text-light caption_background px-4">
+          <caption class="text-light caption_background px-4 d-flex justify-content-center">
             <h2>TEAMS</h2>
           </caption>
         </b-carousel-slide>
@@ -45,7 +45,7 @@
         <b-carousel-slide
           img-src="https://cdn3.dualshockers.com/wp-content/uploads/2018/07/Overwatch-LEague-ds1-1340x1340.jpg"
         >
-          <caption class="text-light caption_background d-flex justify-content-end">
+          <caption class="text-light caption_background d-flex justify-content-center">
             <h2>SCHEDULE</h2>
           </caption>
         </b-carousel-slide>
