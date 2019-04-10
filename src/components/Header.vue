@@ -1,24 +1,30 @@
 <template>
   <div id="app">
-    <b-navbar class="bg-info" toggleable="lg" type="dark" variant="info" top="fixed">
-      <b-navbar-brand href="#">
+    <b-navbar class="bg-dark" toggleable="lg" type="dark" variant="dark" top="fixed">
+      <b-navbar-brand href="./src/views/Home.vue">
         <img class="logo" src="../assets/Overwatch_League_logo.svg">
-        Overwatch League API
+        OWL API
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item href="#">Teams</b-nav-item>
+          <b-nav-item> <router-link class="text-light" to="/">Home</router-link> </b-nav-item>
         </b-navbar-nav>
 
         <b-navbar-nav>
-          <b-nav-item href="#">Players</b-nav-item>
+          <b-nav-item> <router-link class="text-light" to="/teams">Teams</router-link> </b-nav-item>
         </b-navbar-nav>
 
         <b-navbar-nav>
-          <b-nav-item href="#">Schedule</b-nav-item>
+          <b-nav-item> <router-link class="text-light" to="/players">Players</router-link> </b-nav-item>
+        </b-navbar-nav>
+
+        <b-navbar-nav>
+          <b-nav-item> 
+              <router-link class="text-light" to="/schedule">Schedule</router-link>
+          </b-nav-item>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
