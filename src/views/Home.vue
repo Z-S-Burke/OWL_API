@@ -52,7 +52,7 @@
       </router-link>
     </b-carousel>
 
-    <div>
+    <div class="mt-3">
       <h4>GET STARTED WITH OWL API</h4>
       <ul class="p-3">
         <p class="question_text">What is OWL API?</p>
@@ -105,7 +105,7 @@ export default {
 }
 
 .caption_background {
-  background-color: rgb(0,0,0, .5);
+  background-color: rgb(0,0,0, .25);
 }
 
 </style>
