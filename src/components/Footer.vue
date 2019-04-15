@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <div class="d-flex align-items-center bg-dark text-light footer_style mt-3 border border-top-light">
-        <router-link to="/" class="d-flex justify-content-center align-items-center footer_button bg-warning text-dark"> 
+    <div class="d-flex align-items-center bg-dark text-light footer_style border border-top">
+        <router-link to="/" class="d-flex justify-content-center align-items-center footer_button bg-light text-dark"> 
             Home
         </router-link>
-        <router-link to="/teams" class="d-flex justify-content-center align-items-center footer_button bg-warning text-dark"> 
+        <router-link to="/teams" class="d-flex justify-content-center align-items-center footer_button bg-light text-dark"> 
             Teams
         </router-link>
-        <router-link to="/players" class="d-flex justify-content-center align-items-center footer_button bg-warning text-dark"> 
+        <router-link to="/players" class="d-flex justify-content-center align-items-center footer_button bg-light text-dark"> 
             Players
         </router-link>
-        <router-link to="/teams" class="d-flex justify-content-center align-items-center footer_button bg-warning text-dark"> 
+        <router-link to="/teams" class="d-flex justify-content-center align-items-center footer_button bg-light text-dark"> 
             Schedule
         </router-link>
     </div>
@@ -30,7 +30,7 @@ export default {};
 .footer_button {
     height: 100%;
     width: 25%;
-    border-right-style: solid;
-    border-left-style: solid;
+    border-style: solid;
+    /* border-left-style: solid; */
 }
 </style>

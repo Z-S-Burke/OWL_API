@@ -21,26 +21,66 @@
                 <div v-if="player.image_url != null">
                   <img class="player_image" v-bind:src="player.image_url">
                 </div>
-                <div class="d-flex justify-content-between bg-light text-dark">
-                  <h4 class="col-sm-4">Current Team:</h4>
-                  <h4 v-if="player.current_team" class="col-sm-8">{{player.current_team.name}}</h4>
+                <div
+                  class="d-flex my-2 border border-bottom justify-content-between align-items-center bg-light text-dark"
+                  v-if="!player.current_team.image_url"
+                >
+                  <h5 class="info_text">Current Team:</h5>
+                  <h5 v-if="player.current_team" class="col-sm-8">{{player.current_team.name}}</h5>
                 </div>
-                <div class="d-flex justify-content-center bg-light text-dark">
+                <div
+                  class="d-flex justify-content-center m-3 bg-light text-dark"
+                  v-if="player.current_team.image_url"
+                >
                   <figure>
                     <img class="current_team" v-bind:src="player.current_team.image_url">
                     <figcaption>
-                      <div>{{player.current_team.name}}</div>
+                      <div class="d-flex justify-content-around">
+                        <p
+                          v-if="player.current_team.acronym"
+                        >&#40;{{player.current_team.acronym}}&#41;</p>
+                        <p>{{player.current_team.name}}</p>
+                      </div>
                     </figcaption>
                   </figure>
                 </div>
-                <div class="d-flex justify-content-between text-dark" v-if="player.hometown">
-                  <h4 class="col-sm-4">Origin:</h4>
-                  <h4 class="col-sm-4">{{player.hometown}}</h4>
+                <div
+                  class="d-flex border border-bottom justify-content-between text-dark"
+                  v-if="player.first_name"
+                >
+                  <h5 class="info_text">First Name:</h5>
+                  <h5>{{player.first_name}}</h5>
+                </div>
+                <div
+                  class="d-flex border border-bottom justify-content-between text-dark"
+                  v-if="player.last_name"
+                >
+                  <h5 class="info_text">Last Name:</h5>
+                  <h5>{{player.last_name}}</h5>
+                </div>
+                <div
+                  class="d-flex border border-bottom justify-content-between text-dark"
+                  v-if="player.hometown"
+                >
+                  <h5 class="info_text">Origin:</h5>
+                  <h5>{{player.hometown}}</h5>
+                </div>
+                <div
+                  class="d-flex border border-bottom justify-content-between text-dark"
+                  v-if="player.role"
+                >
+                  <h5 class="info_text">Role:</h5>
+                  <h5>{{player.role}}</h5>
+                </div>
+                <div
+                  class="d-flex border border-bottom justify-content-between text-dark">
+                  <h5 class="info_text"> Team ID: </h5>
+                  <h5>{{player.current_team.id}}</h5>
                 </div>
               </div>
             </div>
           </div>
-          <b-button class="mt-3" href="#">Next Page</b-button>
+          <b-button class="mt-3 bg-light text-dark" href="#">NEXT PAGE</b-button>
         </div>
       </div>
     </div>
@@ -104,6 +144,9 @@ export default {
   width: 100%;
 }
 
+.info_text {
+  font-weight: bold;
+}
 .current_team {
   width: 75%;
 }
