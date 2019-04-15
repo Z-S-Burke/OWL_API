@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <div class="d-flex justify-content-between align-items-center bg-dark text-light footer_style">
-        <a class="footer_buttons px-3"> 
+    <div class="d-flex justify-content-between align-items-center bg-dark text-light footer_style pt-3 border border-top-light">
+        <a class="d-flex justify-content-center align-items-center footer_buttons px-3 bg-warning text-dark"> 
             Home
         </a>
-        <a class="footer_buttons px-3"> 
+        <a class="d-flex justify-content-center align-items-center footer_buttons px-3 bg-warning text-dark"> 
             Teams
         </a>
-        <a class="footer_buttons px-3"> 
+        <a class="d-flex justify-content-center align-items-center footer_buttons px-3 bg-warning text-dark"> 
             Players
         </a>
-        <a class="footer_buttons px-3"> 
+        <a class="d-flex justify-content-center align-items-center footer_buttons px-3 bg-warning text-dark"> 
             Schedule
         </a>
     </div>
@@ -24,7 +24,7 @@ export default {};
 <style>
 
 .footer_style {
-    height: 30px; 
+    height: 50px;
 }
 .footer_buttons {
     height: 100%;
