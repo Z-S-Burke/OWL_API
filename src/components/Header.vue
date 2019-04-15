@@ -1,35 +1,42 @@
 <template>
   <div id="app">
     <b-navbar class="bg-dark" toggleable="lg" type="dark" variant="dark" top="fixed">
-      <b-navbar-brand href="./src/views/Home.vue">
-        <img class="logo" src="../assets/Overwatch_League_logo.svg">
-        OWL API
+      <b-navbar-brand>
+        <router-link to="/" class="d-flex align-items-center-text-light ml-2">
+          <img class="logo" src="../assets/Overwatch_League_logo.svg">
+          <h1 class="ml-2 text-light"> OWL API </h1>
+        </router-link>
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item> <router-link class="text-light" to="/">Home</router-link> </b-nav-item>
+          <b-nav-item>
+            <router-link class="text-light" to="/">Home</router-link>
+          </b-nav-item>
         </b-navbar-nav>
 
         <b-navbar-nav>
-          <b-nav-item> <router-link class="text-light" to="/teams">Teams</router-link> </b-nav-item>
+          <b-nav-item>
+            <router-link class="text-light" to="/teams">Teams</router-link>
+          </b-nav-item>
         </b-navbar-nav>
 
         <b-navbar-nav>
-          <b-nav-item> <router-link class="text-light" to="/players">Players</router-link> </b-nav-item>
+          <b-nav-item>
+            <router-link class="text-light" to="/players">Players</router-link>
+          </b-nav-item>
         </b-navbar-nav>
 
         <b-navbar-nav>
-          <b-nav-item> 
-              <router-link class="text-light" to="/schedule">Schedule</router-link>
+          <b-nav-item>
+            <router-link class="text-light" to="/schedule">Schedule</router-link>
           </b-nav-item>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-
           <b-nav-item-dropdown right>
             <!-- Using 'button-content' slot -->
             <template slot="button-content">
@@ -59,8 +66,12 @@ export default {};
   width: 50px;
 }
 
+.logo_text {
+    text-decoration: none;
+}
+
 .custom_bg_color {
-  background-color:rgb(241, 144, 16);
+  background-color: rgb(241, 144, 16);
 }
 </style>
 

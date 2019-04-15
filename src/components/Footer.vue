@@ -1,18 +1,18 @@
 <template>
   <div id="app">
-    <div class="d-flex justify-content-between align-items-center bg-dark text-light footer_style pt-3 border border-top-light">
-        <a class="d-flex justify-content-center align-items-center footer_buttons px-3 bg-warning text-dark"> 
+    <div class="d-flex align-items-center bg-dark text-light footer_style mt-3 border border-top-light">
+        <router-link to="/" class="d-flex justify-content-center align-items-center footer_button bg-warning text-dark"> 
             Home
-        </a>
-        <a class="d-flex justify-content-center align-items-center footer_buttons px-3 bg-warning text-dark"> 
+        </router-link>
+        <router-link to="/teams" class="d-flex justify-content-center align-items-center footer_button bg-warning text-dark"> 
             Teams
-        </a>
-        <a class="d-flex justify-content-center align-items-center footer_buttons px-3 bg-warning text-dark"> 
+        </router-link>
+        <router-link to="/players" class="d-flex justify-content-center align-items-center footer_button bg-warning text-dark"> 
             Players
-        </a>
-        <a class="d-flex justify-content-center align-items-center footer_buttons px-3 bg-warning text-dark"> 
+        </router-link>
+        <router-link to="/teams" class="d-flex justify-content-center align-items-center footer_button bg-warning text-dark"> 
             Schedule
-        </a>
+        </router-link>
     </div>
   </div>
 </template>
@@ -25,8 +25,12 @@ export default {};
 
 .footer_style {
     height: 50px;
+    width: @media screen;
 }
-.footer_buttons {
+.footer_button {
     height: 100%;
+    width: 25%;
+    border-right-style: solid;
+    border-left-style: solid;
 }
 </style>

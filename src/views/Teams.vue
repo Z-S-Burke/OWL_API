@@ -18,28 +18,32 @@
                   <h2>{{team.name.toUpperCase()}}</h2>
                 </div>
               </div>
-              <div class="border border-light" v-if="team.image_url">
+              <div class="bg-light" v-if="team.image_url">
                 <div v-if="team.image_url != null">
-                  <img class="current_team" v-bind:src="team.image_url">
+                  <img class="current_team my-3" v-bind:src="team.image_url">
                 </div>
               </div>
-              <div class="bg-secondary text-light">
-                <h4 class="my-2">Current Players:</h4>
+              <div class="bg-dark text-light" v-on:click="isHidden = !isHidden">
+                <b-button class="my-2 bg-info">Show Players:</b-button>
               </div>
-              <div
-                v-for="player of team.players"
-                v-bind:key="player.id"
-                class="py-2 d-flex justify-content-left bg-info text-dark border border-dark"
-              >
-                <div v-if="player.image_url">
-                  <div v-if="player.image_url != null">
-                    <div v-if="player.image_url != badURL">
-                      <img class="player_image" v-bind:src="player.image_url">
+              <div v-if="!isHidden">
+                <div
+                  v-for="player of team.players"
+                  v-bind:key="player.id"
+                  class="mx-3 d-flex flex-column justify-content-center bg-light text-dark player_card"
+                >
+                  <div>
+                    <h4
+                      class="player_name mr-3 d-flex justify-content-center"
+                    >&ldquo;{{player.name}}&rdquo;</h4>
+                    <div v-if="player.image_url">
+                      <img
+                        v-if="player.image_url != null"
+                        class="player_image"
+                        v-bind:src="player.image_url"
+                      >
                     </div>
                   </div>
-                </div>
-                <div>
-                  <h4 class="player_name mr-3 d-flex justify-content-left">{{player.name}}</h4>
                   <div>
                     <div>
                       <p v-if="player.role != null">Role: {{player.role}}</p>
@@ -69,6 +73,7 @@ export default {
       teamsURL: "https://api.pandascore.co/ow/teams?sort=name",
       teams: [],
       teamMembers: [],
+      isHidden: true,
       badURL:
         "https://cdn.pandascore.co/images/player/image/17239/unknownpna.jpg",
       search: ""
@@ -107,11 +112,22 @@ export default {
 }
 
 .player_image {
-  height: 250px;
-  width: 250px;
+  width: 100%;
+  border-style: inset;
 }
 
 .player_name {
   font-weight: bold;
+}
+
+.player_card {
+  border-width: 5px;
+  border-color: rgb(142, 169, 177);
+  padding: 10px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  -webkit-box-shadow: 3px 4px 59px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 3px 4px 59px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 3px 4px 59px 0px rgba(0, 0, 0, 0.75);
 }
 </style>
