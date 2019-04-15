@@ -1,16 +1,21 @@
 <template>
   <div id="app">
-    <div class="bg-dark text-light p-1 mb-3">
+    <div class="page_background bg-dark text-light p-1 mb-3">
       <div>
         <div>
           <img
             class="page_image"
             src="https://d2y4mhrku00tr3.cloudfront.net/images/pages/about/team-logos-40f002676ef0d61a27cee08d85358575bee03e5b2374f52d2fa1b2b7fb0f061ada398c1c99e32189c64d9628b21b091f939c84ed6066ad179193de6a6305e004.jpg"
           >
-          <h2 class="mt-2 border border-warning">TEAMS</h2>
+          <h2 class="mt-2 bg-light text-dark">TEAMS</h2>
           <div v-for="team of teams" v-bind:key="team.id">
             <div v-if="team.players.length != 0 && team.image_url != null">
-              <div class="d-flex justify-content-around bg-secondary text-light">
+              <div class="bg-light" v-if="team.image_url">
+                <div v-if="team.image_url != null">
+                  <img class="current_team mt-3" v-bind:src="team.image_url">
+                </div>
+              </div>
+              <div class="d-flex mt-1 justify-content-around align-items-center bg-light text-dark">
                 <div v-if="team.acronym">
                   <h3>&#40;{{team.acronym}}&#41;</h3>
                 </div>
@@ -18,13 +23,8 @@
                   <h2>{{team.name.toUpperCase()}}</h2>
                 </div>
               </div>
-              <div class="bg-light" v-if="team.image_url">
-                <div v-if="team.image_url != null">
-                  <img class="current_team my-3" v-bind:src="team.image_url">
-                </div>
-              </div>
-              <div class="bg-dark text-light" v-on:click="isHidden = !isHidden">
-                <b-button class="my-2 bg-info">Show Players:</b-button>
+              <div class="text-dark" v-on:click="isHidden = !isHidden">
+                <b-button class="m-2 p-2 bg-light text-dark">SHOW PLAYERS:</b-button>
               </div>
               <div v-if="!isHidden">
                 <div
@@ -107,6 +107,11 @@ export default {
 </script>
 
 <style>
+
+.page_background {
+  /* background-url: http://api.thumbr.it/whitenoise-500x500.png?background=4ea6caff&noise=f2f2f2&density=100&opacity=100; */
+}
+
 .page_image {
   width: 100%;
 }
@@ -120,14 +125,18 @@ export default {
   font-weight: bold;
 }
 
+.team_image {
+  border-radius: 15px;
+}
+
 .player_card {
   border-width: 5px;
   border-color: rgb(142, 169, 177);
   padding: 10px;
-  border-radius: 15px;
+  border-radius: 5px;
   margin-bottom: 10px;
-  -webkit-box-shadow: 3px 4px 59px 0px rgba(0, 0, 0, 0.75);
+  /* -webkit-box-shadow: 3px 4px 59px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 3px 4px 59px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 3px 4px 59px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 3px 4px 59px 0px rgba(0, 0, 0, 0.75); */
 }
 </style>

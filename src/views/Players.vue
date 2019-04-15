@@ -7,7 +7,9 @@
             class="page_image"
             src="https://i.kinja-img.com/gawker-media/image/upload/s--Fic8xpVD--/c_scale,f_auto,fl_progressive,q_80,w_800/mmadas61b3ke1xgzcdsh.jpg"
           >
-          <h2 class="py-3 border-bottom border-warning">PLAYERS</h2>
+          <div>
+            <h2 class="py-3 border-bottom border-warning bg-light text-dark">PLAYERS</h2>
+          </div>
           <div
             class="bg-light text-dark m-3 player_card"
             v-for="(player, index) in players"
