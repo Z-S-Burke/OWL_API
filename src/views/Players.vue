@@ -72,6 +72,12 @@
                   <h5 class="info_text">Role:</h5>
                   <h5>{{player.role}}</h5>
                 </div>
+                <div 
+                    class="d-flex border border-bottom justify-content-between text-dark"
+                    v-if="player.id">
+                    <h5 class="info_text"> Player ID: </h5>
+                    <h5> {{player.id}} </h5>
+                </div>
                 <div
                   class="d-flex border border-bottom justify-content-between text-dark">
                   <h5 class="info_text"> Team ID: </h5>

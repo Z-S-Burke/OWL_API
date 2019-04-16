@@ -31,6 +31,12 @@
 
         <b-navbar-nav>
           <b-nav-item>
+            <router-link class="text-light" to="/tournaments">Past Tournaments</router-link>
+          </b-nav-item>
+        </b-navbar-nav>
+
+        <b-navbar-nav>
+          <b-nav-item>
             <router-link class="text-light" to="/schedule">Schedule</router-link>
           </b-nav-item>
         </b-navbar-nav>

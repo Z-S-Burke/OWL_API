@@ -8,8 +8,11 @@
             src="https://d2y4mhrku00tr3.cloudfront.net/images/pages/about/team-logos-40f002676ef0d61a27cee08d85358575bee03e5b2374f52d2fa1b2b7fb0f061ada398c1c99e32189c64d9628b21b091f939c84ed6066ad179193de6a6305e004.jpg"
           >
           <div>
-            <h2 class="py-3 mt-2 border-bottom border-warning bg-light text-dark">TEAMS</h2>
-          </div>          <div v-for="team of teams" v-bind:key="team.id">
+            <a name="#top">
+              <h2 class="py-3 mt-2 border-bottom border-warning bg-light text-dark">TEAMS</h2>
+            </a>
+          </div>
+          <div v-for="team of teams" v-bind:key="team.id">
             <div v-if="team.players.length != 0 && team.image_url != null">
               <div class="bg-light pb-3" v-if="team.image_url">
                 <div v-if="team.image_url != null">
@@ -47,8 +50,8 @@
                   </div>
                   <div>
                     <div>
-                      <p v-if="player.role != null"> Role: {{player.role}}</p>
-                      <p v-if="player.hometown != null"> Hometown: {{player.hometown}}</p>
+                      <p v-if="player.role != null">Role: {{player.role}}</p>
+                      <p v-if="player.hometown != null">Hometown: {{player.hometown}}</p>
                     </div>
                   </div>
                 </div>
@@ -61,8 +64,62 @@
           </div>
         </div>
       </div>
-      <div class="d-flex bg-light p-2 text-dark justify-content-center align-items-center">
-        <b-button class="bg-dark text-light" href="#"> NEXT PAGE </b-button>
+      <div class="d-flex bg-light py-2 text-dark justify-content-center align-items-center">
+        <b-button
+          class="bg-light text-dark mx-3 px-3"
+          v-on:click="getData(teamsURL[0]), pageNum = 0"
+          href="#top"
+        >1</b-button>
+        <b-button
+          class="bg-dark text-light px-3 mx-3"
+          v-on:click="getData(teamsURL[1]), pageNum = 1"
+          href="#top"
+        >2</b-button>
+        <b-button
+          class="bg-dark text-light px-3 mx-3"
+          v-on:click="getData(teamsURL[2]), pageNum = 2"
+          href="#top"
+        >3</b-button>
+      </div>
+      <div
+        v-if="pageNum == 1"
+        class="d-flex bg-light py-2 text-dark justify-content-center align-items-center"
+      >
+        <b-button
+          class="bg-dark text-light mx-3 px-3"
+          v-on:click="getData(teamsURL[0]), pageNum = 0"
+          href="#top"
+        >1</b-button>
+        <b-button
+          class="bg-light text-dark px-3 mx-3"
+          v-on:click="getData(teamsURL[1]), pageNum = 1"
+          href="#top"
+        >2</b-button>
+        <b-button
+          class="bg-dark text-light px-3 mx-3"
+          v-on:click="getData(teamsURL[2]), pageNum = 2"
+          href="#top"
+        >3</b-button>
+      </div>
+      <div
+        v-if="pageNum == 2"
+        class="d-flex bg-light py-2 text-dark justify-content-center align-items-center"
+      >
+        <b-button
+          class="bg-dark text-light mx-3 px-3"
+          v-on:click="getData(teamsURL[0]), pageNum = 0"
+          href="#top"
+        >1</b-button>
+        <b-button
+          class="bg-dark text-light px-3 mx-3"
+          v-on:click="getData(teamsURL[1]), pageNum = 1"
+          href="#top"
+        >2</b-button>
+        <b-button
+          class="bg-light text-dark px-3 mx-3"
+          v-on:click="getData(teamsURL[2]), pageNum = 2"
+          href="#top"
+        >3</b-button>
       </div>
     </div>
   </div>
@@ -74,10 +131,16 @@ export default {
   components: {},
   data() {
     return {
-      teamsURL: "https://api.pandascore.co/ow/teams?sort=name",
+      teamsURL: [
+        "https://api.pandascore.co/ow/teams?sort=name",
+        "https://api.pandascore.co/ow/teams?page=2&sort=name",
+        "https://api.pandascore.co/ow/teams?page=3&sort=name"
+      ],
       teams: [],
+      pageNum: 0,
       teamMembers: [],
       isHidden: true,
+      myToggle: false,
       badURL:
         "https://cdn.pandascore.co/images/player/image/17239/unknownpna.jpg",
       search: ""
@@ -96,6 +159,7 @@ export default {
           return response.json();
         })
         .then(data => {
+          this.teams = "";
           this.teams = data;
           console.log(this.teams);
         })
@@ -105,7 +169,7 @@ export default {
     }
   },
   mounted() {
-    this.getData(this.teamsURL);
+    this.getData(this.teamsURL[0]);
   }
 };
 </script>

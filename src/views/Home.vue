@@ -17,8 +17,7 @@
       <a class="text-light" href="https://www.twitch.tv/overwatchleague">
         <b-carousel-slide
           img-src="https://techraptor.net/wp-content/uploads/2018/01/overwatch-league-twitch-902x507.jpg"
-        >
-        </b-carousel-slide>
+        ></b-carousel-slide>
       </a>
 
       <router-link class="text-light" to="/teams">
@@ -37,6 +36,16 @@
         >
           <caption class="text-light caption_background px-4 d-flex justify-content-center">
             <h2>PLAYERS</h2>
+          </caption>
+        </b-carousel-slide>
+      </router-link>
+
+      <router-link to="/tournaments">
+        <b-carousel-slide
+          img-src="https://cdn3.dualshockers.com/wp-content/uploads/2018/07/Overwatch-LEague-ds1-1340x1340.jpg"
+        >
+          <caption class="text-light caption_background d-flex justify-content-center">
+            <h2>Tournaments</h2>
           </caption>
         </b-carousel-slide>
       </router-link>
@@ -105,7 +114,6 @@ export default {
 }
 
 .caption_background {
-  background-color: rgb(0,0,0, .25);
+  background-color: rgb(0, 0, 0, 0.25);
 }
-
 </style>
