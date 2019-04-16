@@ -10,7 +10,7 @@
         <router-link to="/players" class="d-flex justify-content-center align-items-center footer_button bg-light text-dark"> 
             Players
         </router-link>
-        <router-link to="/teams" class="d-flex justify-content-center align-items-center footer_button bg-light text-dark"> 
+        <router-link to="/schedule" class="d-flex justify-content-center align-items-center footer_button bg-light text-dark"> 
             Schedule
         </router-link>
     </div>

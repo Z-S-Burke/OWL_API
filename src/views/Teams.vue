@@ -64,7 +64,9 @@
           </div>
         </div>
       </div>
-      <div class="d-flex bg-light py-2 text-dark justify-content-center align-items-center">
+      <div 
+        v-if="pageNum == 0"
+        class="d-flex bg-light py-2 text-dark justify-content-center align-items-center">
         <b-button
           class="bg-light text-dark mx-3 px-3"
           v-on:click="getData(teamsURL[0]), pageNum = 0"
@@ -174,10 +176,6 @@ export default {
 </script>
 
 <style>
-.page_background {
-  /* background-url: http://api.thumbr.it/whitenoise-500x500.png?background=4ea6caff&noise=f2f2f2&density=100&opacity=100; */
-}
-
 .page_image {
   width: 100%;
 }
