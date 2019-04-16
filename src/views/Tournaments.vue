@@ -39,7 +39,7 @@
                 </figure>
             </div>
           </div>
-          <b-button class="mt-3 bg-light text-dark" href="#">NEXT PAGE</b-button>
+          <b-button class="mb-3 bg-light text-dark" href="#">NEXT PAGE</b-button>
         </div>
       </div>
     </div>

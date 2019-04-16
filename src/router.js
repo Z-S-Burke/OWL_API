@@ -5,6 +5,7 @@ import Teams from './views/Teams.vue'
 import Players from './views/Players.vue'
 import Tournaments from './views/Tournaments.vue'
 import Schedule from './views/Schedule.vue'
+import Maps from './views/Maps.vue'
 
 Vue.use(Router)
 
@@ -36,6 +37,11 @@ export default new Router({
       path: '/tournaments',
       name: 'tournaments',
       component: Tournaments
+    },
+    {
+      path: '/maps',
+      name: 'maps',
+      component: Maps
     }
   ]
 })

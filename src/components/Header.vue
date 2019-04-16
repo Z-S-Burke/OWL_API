@@ -4,7 +4,7 @@
       <b-navbar-brand>
         <router-link to="/" class="d-flex align-items-center-text-light ml-2">
           <img class="logo" src="../assets/Overwatch_League_logo.svg">
-          <h1 class="ml-2 text-light"> OWL API </h1>
+          <h1 class="ml-2 text-light">OWL API</h1>
         </router-link>
       </b-navbar-brand>
 
@@ -37,7 +37,13 @@
 
         <b-navbar-nav>
           <b-nav-item>
-            <router-link class="text-light" to="/schedule">Schedule</router-link>
+            <router-link class="text-light" to="/schedule">Match Schedule</router-link>
+          </b-nav-item>
+        </b-navbar-nav>
+
+        <b-navbar-nav>
+          <b-nav-item>
+            <router-link class="text-light" to="/maps">Map Overviews</router-link>
           </b-nav-item>
         </b-navbar-nav>
 
@@ -73,7 +79,7 @@ export default {};
 }
 
 .logo_text {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .custom_bg_color {
