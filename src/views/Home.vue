@@ -40,16 +40,6 @@
         </b-carousel-slide>
       </router-link>
 
-      <router-link to="/tournaments">
-        <b-carousel-slide
-          img-src="https://cdn3.dualshockers.com/wp-content/uploads/2018/07/Overwatch-LEague-ds1-1340x1340.jpg"
-        >
-          <caption class="text-light caption_background d-flex justify-content-center">
-            <h2>Tournaments</h2>
-          </caption>
-        </b-carousel-slide>
-      </router-link>
-
       <router-link to="/schedule">
         <b-carousel-slide
           img-src="https://cdn3.dualshockers.com/wp-content/uploads/2018/07/Overwatch-LEague-ds1-1340x1340.jpg"

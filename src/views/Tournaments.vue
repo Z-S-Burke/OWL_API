@@ -14,7 +14,7 @@
             class="bg-light text-dark m-3 player_card"
             v-for="tournament of tournaments" v-bind:key="tournament.id">
                 <figure> 
-                <h2> {{tournament.league.name}} </h2>
+                <h2 style="font-style: italic"> {{tournament.league.name}} </h2>
                 <p> &#40;{{tournament.serie.full_name}}&#41;</p>
                     <b-button size="lg" class="mb-3 bg-info"> Matches for {{tournament.name}} </b-button>
                     <div v-for="match of tournament.matches" v-bind:key="match.id"> 
