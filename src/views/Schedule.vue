@@ -12,8 +12,8 @@
               </div>
               <div> 
                 <div v-if="chat == true"> 
-                  <iframe src="https://www.twitch.tv/embed/overwatchleague/chat" frameborder="0" scrolling="no" height="500" width="100%"></iframe>
                   <b-button class="text-light chat_button" v-on:click="showChat()"> Hide Chat </b-button>
+                  <iframe src="https://www.twitch.tv/embed/overwatchleague/chat" frameborder="0" scrolling="no" height="500" width="100%"></iframe>
                 </div>
                 <div v-if="chat == false"> 
                   <b-button class="text-light chat_button" v-on:click="showChat()"> Show Chat </b-button>
