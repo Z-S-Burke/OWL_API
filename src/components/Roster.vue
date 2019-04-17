@@ -1,8 +1,8 @@
 <template>
   <div>
     <button :title="oneRoster.players" class="text-dark roster_button my-2" v-on:click="showRoster()">
-      <p v-if="show">Hide &ldquo;{{oneRoster.name}}&rdquo; Roster</p>
-      <p v-if="!show">Show &ldquo;{{oneRoster.name}}&rdquo; Roster</p>
+      <p v-if="show">Hide &ldquo;{{oneRoster.name}}&rdquo; </p>
+      <p v-if="!show">Show &ldquo;{{oneRoster.name}}&rdquo; </p>
     </button>
     <div v-if="show" v-for="player of oneRoster.players" v-bind:key="player.id" class="mb-2">
       <Player :onePlayer="player"/>

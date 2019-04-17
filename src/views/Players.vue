@@ -10,12 +10,17 @@
           <div>
             <h2 class="py-3 border-bottom border-warning bg-light text-dark">PLAYERS</h2>
           </div>
+          <div> 
+              <h5> Click to learn more about... </h5>
+          </div>
           <div
             class="bg-light text-dark m-3 player_card"
             v-for="(player, index) in players"
             :key="index"
           >
-            <div v-if="player.current_team">
+              <Player :onePlayer="player"/>
+            </div>
+            <!-- <div v-if="player.current_team">
               <div v-if="player.current_team.image_url != null">
                 <h3>&ldquo;{{player.name}}&rdquo;</h3>
                 <div v-if="player.image_url != null">
@@ -72,21 +77,21 @@
                   <h5 class="info_text">Role:</h5>
                   <h5>{{player.role}}</h5>
                 </div>
-                <div 
-                    class="d-flex border border-bottom justify-content-between text-dark"
-                    v-if="player.id">
-                    <h5 class="info_text"> Player ID: </h5>
-                    <h5> {{player.id}} </h5>
-                </div>
                 <div
-                  class="d-flex border border-bottom justify-content-between text-dark">
-                  <h5 class="info_text"> Team ID: </h5>
+                  class="d-flex border border-bottom justify-content-between text-dark"
+                  v-if="player.id"
+                >
+                  <h5 class="info_text">Player ID:</h5>
+                  <h5>{{player.id}}</h5>
+                </div>
+                <div class="d-flex border border-bottom justify-content-between text-dark">
+                  <h5 class="info_text">Team ID:</h5>
                   <h5>{{player.current_team.id}}</h5>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
-          <b-button class="mt-3 bg-light text-dark" href="#">NEXT PAGE</b-button>
+          <b-button class="mb-3 bg-light text-dark" href="#">NEXT PAGE</b-button>
         </div>
       </div>
     </div>
@@ -94,14 +99,15 @@
 </template>
 
 <script>
+import Player from "@/components/Player.vue";
 export default {
   name: "Players",
   components: {
-    // Book
+    Player
   },
   data() {
     return {
-      playersURL: "https://api.pandascore.co/ow/players?sort=name",
+      playersURL: "https://api.pandascore.co/ow/players?sort=name&per_page=25",
       players: [],
       search: ""
     };
@@ -129,16 +135,6 @@ export default {
   created() {
     this.getData(this.playersURL);
   }
-  //   computed: {
-  //     filteredBooks() {
-  //       return this.books.filter(book => {
-  //         return (
-  //           book.titulo.toLowerCase().includes(this.search.toLowerCase()) ||
-  //           book.descripcion.toLowerCase().includes(this.search.toLowerCase())
-  //         );
-  //       });
-  //     }
-  //   }
 };
 </script>
 
