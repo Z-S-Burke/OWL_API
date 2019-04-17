@@ -7,24 +7,53 @@
         >&ldquo;{{onePlayer.name}}&rdquo;</button>
       </div>
       <div v-if="!show">
-        <div>
-          <div v-if="onePlayer.image_url">
-            <img
-              v-if="onePlayer.image_url != null"
-              class="player_image"
-              v-bind:src="onePlayer.image_url"
-            >
-          </div>
+        <div v-if="onePlayer.image_url">
+          <img
+            v-if="onePlayer.image_url != null"
+            class="player_image"
+            v-bind:src="onePlayer.image_url"
+          >
         </div>
         <div>
           <div>
-            <div class="d-flex justify-content-between border align-items-center border-bottom" v-if="onePlayer.role != null">
-              <p class="font-weight-bold"> Role:</p>
+            <div
+              class="d-flex justify-content-between border align-items-center border-bottom"
+              v-if="onePlayer.role != null"
+            >
+              <p class="font-weight-bold">Role:</p>
               <p>{{onePlayer.role}}</p>
             </div>
-            <div class="d-flex justify-content-between align-items-center border border-bottom" v-if="onePlayer.hometown != null">
-                <p class="font-weight-bold"> Hometown: </p> 
-                <p> {{onePlayer.hometown}} </p>
+            <div
+              class="d-flex justify-content-between align-items-center border border-bottom"
+              v-if="onePlayer.hometown != null"
+            >
+              <p class="font-weight-bold">Hometown:</p>
+              <p>{{onePlayer.hometown}}</p>
+            </div>
+            <div
+              class="d-flex justify-content-between align-items-center border border-bottom"
+              v-if="onePlayer.current_team != null"
+            >
+              <p class="font-weight-bold">Team</p>
+              <div class="d-flex">
+                <p class="mr-1 font-italic">{{onePlayer.current_team.name}}</p>
+                <p
+                  v-if="onePlayer.current_team.acronym != null"
+                >&#40;{{onePlayer.current_team.acronym}}&#41;:</p>
+              </div>
+            </div>
+            <div
+              class="d-flex justify-content-between align-items-center border border-bottom"
+              v-if="onePlayer.current_team.image_url != null"
+            >
+              <img class="player_team_img" v-bind:src="onePlayer.current_team.image_url">
+            </div>
+            <div
+              class="d-flex justify-content-between align-items-center border border-bottom"
+              v-if="onePlayer.current_team != null"
+            >
+              <p class="font-weight-bold">Team ID:</p>
+              <p class="text-primary">{{onePlayer.current_team.id}}</p>
             </div>
           </div>
         </div>
@@ -56,5 +85,9 @@ export default {
   height: 40px;
   font-weight: bold;
   font-size: 20px;
+}
+
+.player_team_img {
+  width: 100%;
 }
 </style>

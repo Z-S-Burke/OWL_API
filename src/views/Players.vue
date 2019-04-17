@@ -126,6 +126,7 @@ export default {
         })
         .then(data => {
           this.players = data;
+          console.log(this.players)
         })
         .catch(err => {
           throw err;

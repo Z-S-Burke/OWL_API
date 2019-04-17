@@ -75,7 +75,6 @@ export default {
         })
         .then(data => {
           this.tournaments = data;
-          console.log(this.tournaments);
         })
         .catch(err => {
           throw err;
@@ -85,16 +84,6 @@ export default {
   created() {
     this.getData(this.tourneyURL);
   }
-  //   computed: {
-  //     filteredBooks() {
-  //       return this.books.filter(book => {
-  //         return (
-  //           book.titulo.toLowerCase().includes(this.search.toLowerCase()) ||
-  //           book.descripcion.toLowerCase().includes(this.search.toLowerCase())
-  //         );
-  //       });
-  //     }
-  //   }
 };
 </script>
 

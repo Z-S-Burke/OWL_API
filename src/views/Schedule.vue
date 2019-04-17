@@ -3,17 +3,24 @@
     <div class="bg-dark text-light">
       <div>
         <div class="pb-3">
-          <a href="https://www.twitch.tv/overwatchleague">
-            <img
-              class="page_image"
-              src="https://i.ytimg.com/vi/1SKblajuedg/maxresdefault.jpg"
-            >
-          </a>
           <div>
             <a name=#top> 
               <h2 class="py-3 border-bottom border-warning bg-light text-dark"> MATCH SCHEDULE </h2>
             </a>
-          </div>
+              <div> 
+                <iframe src="https://player.twitch.tv/?channel=overwatchleague" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="100%"></iframe>
+              </div>
+              <div> 
+                <div v-if="chat == true"> 
+                  <iframe src="https://www.twitch.tv/embed/overwatchleague/chat" frameborder="0" scrolling="no" height="500" width="100%"></iframe>
+                  <b-button class="text-light chat_button" v-on:click="showChat()"> Hide Chat </b-button>
+                </div>
+                <div v-if="chat == false"> 
+                  <b-button class="text-light chat_button" v-on:click="showChat()"> Show Chat </b-button>
+                </div>
+              </div>
+            </div>
+          </div> 
           <div
             class="bg-light text-dark m-3 player_card"
             v-for="tournament of tournaments" v-bind:key="tournament.id">
@@ -71,6 +78,7 @@ export default {
       tourneyURL: "https://api.pandascore.co/ow/tournaments/upcoming",
       tournaments: [],
       matchTeams: [],
+      chat: false,
       search: ""
     };
   },
@@ -110,6 +118,9 @@ export default {
           return team2 = team.image_url;
         }
       }
+    },
+    showChat() {
+      this.chat = !this.chat;
     }
   },
   created() {
@@ -145,5 +156,12 @@ export default {
 .team_logo {
     height: 100px;
     width: 100px;
+}
+
+.chat_button {
+  width: 100%;
+  height: 50px;
+  font-weight: bold;
+  font-size: 24px;
 }
 </style>
