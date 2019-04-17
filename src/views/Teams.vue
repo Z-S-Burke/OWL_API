@@ -9,7 +9,7 @@
           >
           <div>
             <a name="#top">
-              <h2 class="py-3 mt-2 border-bottom border-warning bg-light text-dark">TEAMS</h2>
+              <h2 class="py-3 my-2 border-bottom border-warning bg-light text-dark">TEAMS</h2>
             </a>
           </div>
           <div v-for="team of teams" v-bind:key="team.id">
@@ -27,34 +27,8 @@
                   <h2>{{team.name.toUpperCase()}}</h2>
                 </div>
               </div>
-              <div :title="team.players" class="text-dark" v-on:click="isHidden = !isHidden">
-                <b-button class="m-2 p-2 bg-light text-dark">SHOW PLAYERS:</b-button>
-              </div>
-              <div v-if="!isHidden">
-                <div
-                  v-for="player of team.players"
-                  v-bind:key="player.id"
-                  class="mx-3 d-flex flex-column justify-content-center bg-light text-dark player_card"
-                >
-                  <div>
-                    <h4
-                      class="player_name d-flex justify-content-center"
-                    >&ldquo;{{player.name}}&rdquo;</h4>
-                    <div v-if="player.image_url">
-                      <img
-                        v-if="player.image_url != null"
-                        class="player_image"
-                        v-bind:src="player.image_url"
-                      >
-                    </div>
-                  </div>
-                  <div>
-                    <div>
-                      <p v-if="player.role != null">Role: {{player.role}}</p>
-                      <p v-if="player.hometown != null">Hometown: {{player.hometown}}</p>
-                    </div>
-                  </div>
-                </div>
+              <div v-bind:key="team.id">
+                <Roster :oneRoster="team"/>
               </div>
               <div class="d-flex justify-content-between bg-light text-dark" v-if="team.hometown">
                 <h4 class="col-sm-4">Origin:</h4>
@@ -64,9 +38,10 @@
           </div>
         </div>
       </div>
-      <div 
+      <div
         v-if="pageNum == 0"
-        class="d-flex bg-light py-2 text-dark justify-content-center align-items-center">
+        class="d-flex bg-light py-2 text-dark justify-content-center align-items-center"
+      >
         <b-button
           class="bg-light text-dark mx-3 px-3"
           v-on:click="getData(teamsURL[0]), pageNum = 0"
@@ -128,9 +103,12 @@
 </template>
 
 <script>
+import Roster from "@/components/Roster.vue";
 export default {
   name: "Teams",
-  components: {},
+  components: {
+    Roster
+  },
   data() {
     return {
       teamsURL: [
@@ -141,8 +119,8 @@ export default {
       teams: [],
       pageNum: 0,
       teamMembers: [],
-      isHidden: true,
       myToggle: false,
+      show: true,
       badURL:
         "https://cdn.pandascore.co/images/player/image/17239/unknownpna.jpg",
       search: ""
@@ -167,6 +145,9 @@ export default {
         .catch(err => {
           throw err;
         });
+    },
+    showRoster() {
+      this.show = !this.show;
     }
   },
   mounted() {
@@ -197,10 +178,15 @@ export default {
   border-width: 5px;
   border-color: rgb(142, 169, 177);
   padding: 10px;
-  border-radius: 5px;
   margin-bottom: 10px;
-  /* -webkit-box-shadow: 3px 4px 59px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 3px 4px 59px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 3px 4px 59px 0px rgba(0, 0, 0, 0.75); */
+}
+
+.roster_button {
+  width: 95%;
+  height: 40px;
+  font-size: 20px;
+  border: double;
+  border-width: 5px;
+  background-color: whitesmoke;
 }
 </style>

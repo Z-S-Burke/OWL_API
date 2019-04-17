@@ -4,7 +4,7 @@
       <b-navbar-brand>
         <router-link to="/" class="d-flex align-items-center-text-light ml-2">
           <img class="logo" src="../assets/Overwatch_League_logo.svg">
-          <h1 class="ml-2 text-light">OWL API</h1>
+          <h2 class="ml-2 mt-2 text-light">OWL API</h2>
         </router-link>
       </b-navbar-brand>
 

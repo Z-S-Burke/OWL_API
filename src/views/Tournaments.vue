@@ -22,24 +22,26 @@
                         <div>
                             <div class="d-flex justify-content-between align-content-center" > 
                                 <h6> &#40;Best of {{match.number_of_games}}&#41;</h6>
-                                <h6> Match ID: {{match.id}} </h6>
-                            </div>
-                            <div v-for="team of tournament.teams" v-bind:key="team.id"> 
-                                <div class="d-flex justify-content-between align-items-center border border-bottom border-secondary" v-if="team.id == match.winner_id">
-                                    <h5> Winner: {{team.name}} </h5>
-                                    <img v-if="team.image_url != null" class="winner_logo" v-bind:src="team.image_url">
-                                    <h5> Winner ID: {{match.winner_id}} </h5>
+                                    <div class="d-flex align-items-center">
+                                        <h6 class="mr-1 font-weight-bold"> Match ID: </h6>
+                                        <h6 class="text-primary"> {{match.id}} </h6>
+                                    </div>                             </div>
+                                <div v-for="team of tournament.teams" v-bind:key="team.id"> 
+                                    <div class="d-flex justify-content-between align-items-center border border-bottom border-secondary" v-if="team.id == match.winner_id">
+                                        <h5> Winner: {{team.name}} </h5>
+                                        <img v-if="team.image_url != null" class="winner_logo" v-bind:src="team.image_url">
+                                        <h5> Winner ID: {{match.winner_id}} </h5>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     <figcaption> 
                         <p> Last modified at {{tournament.league.modified_at}} </p> 
                     </figcaption>
                 </figure>
+                </div>
             </div>
-          </div>
-          <b-button class="mb-3 bg-light text-dark" href="#">NEXT PAGE</b-button>
+            <b-button class="mb-3 bg-light text-dark" href="#">NEXT PAGE</b-button>
         </div>
       </div>
     </div>

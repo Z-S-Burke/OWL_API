@@ -18,7 +18,7 @@ export default {
   name: "teams",
   components: {
     Footer,
-    Header
+    Header,
   }
 };
 //   },
