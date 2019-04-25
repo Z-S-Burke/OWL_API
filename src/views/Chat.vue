@@ -1,6 +1,9 @@
 <template>
-  <div class="d-flex justify-content-center align-items-center bg-warning">
-    <div class="bg-dark text-light">
+  <div class="d-flex justify-content-center align-items-center chat_background">
+    <div class="text-light">
+      <div class="carousel_border" v-if="loginStatus == false">
+        <h1 class="bg-light text-dark font-italic font-weight-bold opacity_tool">Want to chat with other fans?</h1>
+      </div>
       <div class="carousel_border">
         <div
           class="carousel_border bg-light text-dark d-flex justify-content-center align-items-center"
@@ -12,9 +15,9 @@
             class="log_in_button mx-2"
             src="http://www.stickpng.com/assets/images/5847f9cbcef1014c0b5e48c8.png"
           >
-          <h3 class="font-italic mx-2">to post something...</h3>
         </div>
         <img
+          v-if="loginStatus == true"
           class="page_image"
           src="https://cdn-images-1.medium.com/max/1600/1*fYHu8oLjCov7HA3l81xh0A.jpeg"
         >
@@ -22,7 +25,10 @@
 
       <div>
         <div class="px-3 my-2" id="posts" v-for="post in allPosts" :key="post.id">
-          <div v-if="post.author == userName" class="bg-info text-light float-right message_box p-2">
+          <div
+            v-if="post.author == userName"
+            class="bg-info text-light float-right message_box p-2"
+          >
             <div class="d-flex flex-column align-items-start">
               <h4 class="mr-3 author">{{post.author}}:</h4>
               <p class="font-italic body_text">{{post.body}}</p>
@@ -169,6 +175,7 @@ export default {
 .message_box {
   width: 75%;
   border: solid;
+  margin: 10px;
 }
 
 .author {
@@ -177,5 +184,17 @@ export default {
 
 .body_text {
   text-indent: 15px;
+  opacity: 1;
+}
+
+.chat_background {
+  background-image: url("http://i.imgur.com/diq7MHg.jpg");
+  background-size: 1280px;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.opacity_tool {
+  opacity: .8;
 }
 </style>
