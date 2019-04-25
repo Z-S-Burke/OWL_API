@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <b-navbar class="bg-dark" toggleable="lg" type="dark" variant="dark" top="fixed">
+    <b-navbar class="bg-dark" toggleable="lg" type="dark" variant="dark" top="fixed" id="navbar">
       <b-navbar-brand>
         <router-link to="/" class="d-flex align-items-center-text-light ml-2">
           <img class="logo" src="../assets/Overwatch_League_logo.svg">
@@ -57,11 +57,11 @@
             <b-dropdown-item href="#">Messages</b-dropdown-item>
             <b-dropdown-item href="#">Sign Out</b-dropdown-item>
           </b-nav-item-dropdown>
-
+          <!-- 
           <b-nav-form>
             <b-form-input size="sm" class="mr-sm-2" placeholder="Search the site..."></b-form-input>
             <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
-          </b-nav-form>
+          </b-nav-form>-->
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -85,5 +85,13 @@ export default {};
 .custom_bg_color {
   background-color: rgb(241, 144, 16);
 }
-</style>
 
+/* @media screen and (min-width: 768px) {
+  #navbar {
+    width: 100vw;
+    position: fixed;
+    z-index: 100;
+    height: 70px;
+  }
+} */
+</style> 

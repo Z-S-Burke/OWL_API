@@ -30,32 +30,6 @@
               <p class="font-weight-bold">Hometown:</p>
               <p>{{onePlayer.hometown}}</p>
             </div>
-            <div
-              class="d-flex justify-content-between align-items-center border border-bottom"
-              v-if="onePlayer.current_team"
-            >
-              <p class="font-weight-bold">Team</p>
-              <div class="d-flex"
-                    v-if="onePlayer.current_team">
-                <p class="mr-1 font-italic">{{onePlayer.current_team.name}}</p>
-                <p
-                  v-if="onePlayer.current_team.acronym != null"
-                >&#40;{{onePlayer.current_team.acronym}}&#41;:</p>
-              </div>
-            </div>
-            <div
-              class="d-flex justify-content-between align-items-center border border-bottom"
-              v-if="onePlayer.current_team.image_url"
-            >
-              <img class="player_team_img" v-bind:src="onePlayer.current_team.image_url">
-            </div>
-            <div
-              class="d-flex justify-content-between align-items-center border border-bottom"
-              v-if="onePlayer.current_team"
-            >
-              <p class="font-weight-bold">Team ID:</p>
-              <p class="text-primary">{{onePlayer.current_team.id}}</p>
-            </div>
           </div>
         </div>
       </div>
@@ -65,7 +39,7 @@
 
 <script>
 export default {
-  name: "Player",
+  name: "Teammate",
   props: ["onePlayer"],
   data() {
     return {
@@ -90,23 +64,5 @@ export default {
 
 .player_team_img {
   width: 100%;
-}
-
-@media screen and (min-width: 768px) {
-  .player_card_container {
-    display: -ms-flexbox;
-    -ms-flex-direction: row;
-    -ms-flex-wrap: wrap;
-    display: flex;
-    width: 100vw;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: flex-end;
-    background-color: white;
-  }
-
-  .player_card {
-    width: 50vw;
-  }
 }
 </style>

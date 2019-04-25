@@ -1,22 +1,44 @@
 <template>
-  <div>
-    <button :title="oneRoster.players" class="text-dark roster_button my-2" v-on:click="showRoster()">
-      <p v-if="show">Hide &ldquo;{{oneRoster.name}}&rdquo; </p>
-      <p v-if="!show">Show &ldquo;{{oneRoster.name}}&rdquo; </p>
+  <div id="app">
+    <button
+      :title="oneRoster.players"
+      class="text-dark roster_button my-2"
+      v-on:click="showRoster()"
+    >
+      <div class="team_card_media_roster">
+        <div id="roster_big">
+          <div>
+            <p v-if="show">&ldquo;{{oneRoster.acronym}}&rdquo;</p>
+          </div>
+          <div>
+            <p v-if="!show">&ldquo;{{oneRoster.acronym}}&rdquo;</p>
+          </div>
+        </div>
+        <div id="roster_small">
+          <div>
+            <p v-if="show">Hide &ldquo;{{oneRoster.acronym}}&rdquo;</p>
+          </div>
+          <div>
+            <p v-if="!show">Show &ldquo;{{oneRoster.acronym}}&rdquo;</p>
+          </div>
+        </div>
+      </div>
     </button>
-    <div v-if="show" v-for="player of oneRoster.players" v-bind:key="player.id" class="mb-2">
-      <Player :onePlayer="player"/>
+    <div id="roster_big" v-for="player of oneRoster.players" v-bind:key="player.id" class="mb-2">
+      <div v-if="show">
+        <Teammate :onePlayer="player"/>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import Player from "@/components/Player.vue";
+import Teammate from "@/components/Teammate.vue";
 export default {
   name: "Roster",
   props: ["oneRoster"],
   components: {
-      Player
+    Teammate
   },
   data() {
     return {
@@ -37,5 +59,9 @@ export default {
   height: 50px;
   font-weight: bold;
   font-size: 24px;
+}
+
+.roster_button {
+  font-size: 10px;
 }
 </style>

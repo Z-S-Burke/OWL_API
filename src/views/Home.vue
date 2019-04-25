@@ -1,15 +1,13 @@
 <template>
-  <div>
+  <div class="bg-dark">
     <b-carousel
-      class="border-top border-bottom border-warning"
+      class="bg-dark carousel_border"
       id="carousel-1"
       v-model="slide"
       :interval="4000"
       controls
       indicators
       background="#ababab"
-      img-width="1024"
-      img-height="480"
       style="text-shadow: 1px 1px 2px #333;"
       @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd"
@@ -42,7 +40,7 @@
 
       <router-link to="/schedule">
         <b-carousel-slide
-          img-src="https://cdn3.dualshockers.com/wp-content/uploads/2018/07/Overwatch-LEague-ds1-1340x1340.jpg"
+          img-src="https://o.aolcdn.com/images/dims?quality=85&image_uri=http%3A%2F%2Fo.aolcdn.com%2Fhss%2Fstorage%2Fmidas%2Fab6d9eba5dec525a65d8637bb329277%2F206570547%2Fesport-ed.jpg&client=amp-blogside-v2&signature=ea6eff10c2f278b8d54949e86a2a46ab3b2a0724"
         >
           <caption class="text-light caption_background d-flex justify-content-center">
             <h2>SCHEDULE</h2>
@@ -51,7 +49,7 @@
       </router-link>
     </b-carousel>
 
-    <div class="mt-3">
+    <div class="m-3 bg-light text-dark">
       <h4>GET STARTED WITH OWL API</h4>
       <ul class="p-3">
         <p class="question_text">What is OWL API?</p>
@@ -81,13 +79,13 @@
 export default {
   data() {
     return {
+      /* eslint-disable */
       slide: 0,
       sliding: null
     };
   },
   methods: {
     onSlideStart(slide) {
-      console.log(slide);
       this.sliding = true;
     },
     onSlideEnd(slide) {
@@ -101,6 +99,21 @@ export default {
 .question_text {
   font-weight: bold;
   font-style: italic;
+}
+
+
+.carousel_border {
+  border-style:double;
+  border-color: white;
+  border-width: 10px;
+  padding: 10px;
+}
+
+@media screen and (min-width: 500px) {
+  .carousel_border {
+    border-width: 50px;
+    padding: 25px;
+  }
 }
 
 .caption_background {
