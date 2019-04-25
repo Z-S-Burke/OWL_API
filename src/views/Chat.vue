@@ -1,37 +1,56 @@
 <template>
-  <div>
-    <div class="container">
-      <p class="h3 text-primary mt-5">Basic chat example</p>
-
-      <div>
-        <button type="button" id="login" v-on:click="login()">Log in!</button>
+  <div class="d-flex justify-content-center align-items-center bg-warning">
+    <div class="bg-dark text-light">
+      <div class="carousel_border">
+        <div
+          class="carousel_border bg-light text-dark d-flex justify-content-center align-items-center"
+          v-if="loginStatus == false"
+          v-on:click="login()"
+        >
+          <h3 id="login" class="font-italic mx-2">Log in with</h3>
+          <img
+            class="log_in_button mx-2"
+            src="http://www.stickpng.com/assets/images/5847f9cbcef1014c0b5e48c8.png"
+          >
+          <h3 class="font-italic mx-2">to post something...</h3>
+        </div>
+        <img
+          class="page_image"
+          src="https://cdn-images-1.medium.com/max/1600/1*fYHu8oLjCov7HA3l81xh0A.jpeg"
+        >
       </div>
 
-      <div id="isLogin" class="mt-5">
-        <div id="chat">
-          <p>Simple chat example</p>
-          <input type="text">
-          <p>{{userName}}</p>
-          <button v-on:click="writeNewPost()">Send post</button>
-        </div>
-
-        <div
-          class="my-2 bg-dark text-light"
-          id="posts"
-          v-for="post in allPosts"
-          :key="post.id"
-        >
-          <div class="d-flex justify-content-around">
-            <p>Author:</p>
-            <p>{{post.author}}</p>
+      <div>
+        <div class="px-3 my-2" id="posts" v-for="post in allPosts" :key="post.id">
+          <div v-if="post.author == userName" class="bg-info text-light float-right message_box p-2">
+            <div class="d-flex flex-column align-items-start">
+              <h4 class="mr-3 author">{{post.author}}:</h4>
+              <p class="font-italic body_text">{{post.body}}</p>
+            </div>
+            <div>
+              <p class="text-dark">{{post.date}}</p>
+            </div>
           </div>
-          <div> 
-            <p style="text-italic"> {{post.body}} </p>
+          <div v-if="post.author != userName" class="bg-light text-dark float-left message_box">
+            <div class="d-flex flex-column align-items-start">
+              <h4 class="mr-3 author">{{post.author}}:</h4>
+              <p class="font-italic body_text">{{post.body}}</p>
+            </div>
+            <div>
+              <p>{{post.date}}</p>
+            </div>
           </div>
-          Date: {{post.date}}
         </div>
-        <div>
-          <!-- {{allPosts}} -->
+      </div>
+      <div v-if="loginStatus == true">
+        <div class="d-flex bg-dark flex-column fixed-bottom" id="chat">
+          <input
+            class="border border-info mt-3 text_input d-flex"
+            placeholder="Text goes here..."
+            type="text"
+          >
+          <p class="font-bold d-flex justify-content-left">Posting as: {{userName}}</p>
+          <button class="bg-light text-dark" v-on:click="writeNewPost()">Send post</button>
         </div>
       </div>
     </div>
@@ -49,6 +68,7 @@ export default {
   data() {
     return {
       userName: "",
+      showChat: false,
       email: "",
       loginStatus: false,
       apiKey: "AIzaSyAnt2QYlp9uGG9Lu9v4i_IUt5qdL804uK8",
@@ -74,6 +94,7 @@ export default {
           console.log("Login successful!");
           console.log(user.displayName);
           console.log(user.email);
+          console.log(user.photoUrl);
           this.email = user.email;
           this.userName = user.displayName;
           this.getPosts();
@@ -101,6 +122,7 @@ export default {
     writeNewPost() {
       console.log("in write post");
       const userInput = document.querySelector("input").value;
+      document.querySelector("input").value = "";
 
       // A post entry.
       let postData = {
@@ -135,4 +157,25 @@ export default {
 </script>
 
 <style>
+.log_in_button {
+  width: 100px;
+  height: 100px;
+}
+
+.text_input {
+  scrollwidth: 100%;
+}
+
+.message_box {
+  width: 75%;
+  border: solid;
+}
+
+.author {
+  font-weight: bold;
+}
+
+.body_text {
+  text-indent: 15px;
+}
 </style>
