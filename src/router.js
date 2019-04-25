@@ -6,6 +6,7 @@ import Players from './views/Players.vue'
 import Tournaments from './views/Tournaments.vue'
 import Schedule from './views/Schedule.vue'
 import Maps from './views/Maps.vue'
+import Chat from './views/Chat.vue'
 
 Vue.use(Router)
 
@@ -42,6 +43,11 @@ export default new Router({
       path: '/maps',
       name: 'maps',
       component: Maps
+    },
+    {
+      path: '/chat',
+      name: 'chat',
+      component: Chat
     }
   ]
 })
