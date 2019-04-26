@@ -82,7 +82,7 @@ export default {
 
 <style>
 .player_button {
-  width: 100%;
+  width: 75%;
   height: 40px;
   font-weight: bold;
   font-size: 20px;
@@ -90,23 +90,5 @@ export default {
 
 .player_team_img {
   width: 100%;
-}
-
-@media screen and (min-width: 768px) {
-  .player_card_container {
-    display: -ms-flexbox;
-    -ms-flex-direction: row;
-    -ms-flex-wrap: wrap;
-    display: flex;
-    width: 100vw;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: flex-end;
-    background-color: white;
-  }
-
-  .player_card {
-    width: 50vw;
-  }
 }
 </style>

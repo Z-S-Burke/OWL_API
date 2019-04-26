@@ -8,14 +8,6 @@
       <div class="team_card_media_roster">
         <div id="roster_big">
           <div>
-            <p v-if="show">&ldquo;{{oneRoster.acronym}}&rdquo;</p>
-          </div>
-          <div>
-            <p v-if="!show">&ldquo;{{oneRoster.acronym}}&rdquo;</p>
-          </div>
-        </div>
-        <div id="roster_small">
-          <div>
             <p v-if="show">Hide &ldquo;{{oneRoster.acronym}}&rdquo;</p>
           </div>
           <div>

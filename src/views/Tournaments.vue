@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="bg-dark text-light">
-      <div>
+      <div class="bg-dark">
         <div class="pb-3">
           <img
             class="page_image"
@@ -10,7 +10,8 @@
           <div>
             <h2 class="py-3 border-bottom border-warning bg-light text-dark">PAST TOURNAMENTS</h2>
           </div>
-          <div class="match_schedule_container">
+          <div class="lds-hourglass d-flex justify-content-center" id="load"></div>
+          <div class="match_schedule_container chat_background">
             <div
               class="bg-light text-dark m-3"
               v-for="tournament of tournaments"
@@ -20,7 +21,11 @@
                 <h2 style="font-style: italic">{{tournament.league.name}}</h2>
                 <p>&#40;{{tournament.serie.full_name}}&#41;</p>
                 <b-button size="lg" class="mb-3 bg-info">Matches for {{tournament.name}}</b-button>
-                <div v-for="match of tournament.matches" v-bind:key="match.id" class="d-flex flex-column">
+                <div
+                  v-for="match of tournament.matches"
+                  v-bind:key="match.id"
+                  class="d-flex flex-column"
+                >
                   <h3 class="my-3" style="text-decoration: underline">{{match.name}}</h3>
                   <div>
                     <div class="d-flex justify-content-between align-content-center">
@@ -92,6 +97,8 @@ export default {
         })
         .then(data => {
           this.tournaments = data;
+          let element = document.getElementById("load");
+          element.classList.remove("lds-hourglass");
         })
         .catch(err => {
           throw err;
@@ -113,23 +120,27 @@ export default {
     display: flex;
     width: 100vw;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
     justify-content: space-around;
     background-color: white;
   }
 
-  .match_schedule {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100vw;
+  .chat_background {
+    background-image: url("http://i.imgur.com/diq7MHg.jpg");
+    background-size: 1280px;
+    background-attachment: fixed;
+    background-position: bottom;
+    background-repeat: no-repeat;
   }
 
-  /* .player_card {
-    border-width: 5px;
-    border-color: rgb(142, 169, 177);
-  } */
+  .match_schedule {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 25vw;
+  }
 }
 .page_image {
   width: 100%;

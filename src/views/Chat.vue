@@ -2,7 +2,9 @@
   <div class="d-flex justify-content-center align-items-center chat_background">
     <div class="text-light">
       <div class="carousel_border" v-if="loginStatus == false">
-        <h1 class="bg-light text-dark font-italic font-weight-bold opacity_tool">Want to chat with other fans?</h1>
+        <h1
+          class="bg-light text-dark font-italic font-weight-bold opacity_tool"
+        >Want to chat with other fans?</h1>
       </div>
       <div class="carousel_border">
         <div
@@ -16,11 +18,12 @@
             src="http://www.stickpng.com/assets/images/5847f9cbcef1014c0b5e48c8.png"
           >
         </div>
-        <img
-          v-if="loginStatus == true"
-          class="page_image"
-          src="https://cdn-images-1.medium.com/max/1600/1*fYHu8oLjCov7HA3l81xh0A.jpeg"
-        >
+        <div v-if="loginStatus == true">
+          <img
+            class="page_image"
+            src="https://cdn-images-1.medium.com/max/1600/1*fYHu8oLjCov7HA3l81xh0A.jpeg"
+          >
+        </div>
       </div>
 
       <div>
@@ -97,10 +100,6 @@ export default {
         .then(result => {
           // The signed-in user info.
           let user = result.user;
-          console.log("Login successful!");
-          console.log(user.displayName);
-          console.log(user.email);
-          console.log(user.photoUrl);
           this.email = user.email;
           this.userName = user.displayName;
           this.getPosts();
@@ -110,7 +109,6 @@ export default {
           // Handle Errors here.
           let errorCode = error.code;
           let errorMessage = error.message;
-          console.log(errorCode, errorMessage);
         });
     },
     getPosts() {
@@ -120,13 +118,10 @@ export default {
         .database()
         .ref("posts")
         .on("value", data => {
-          console.log(data.val());
-          console.log(this.allPosts);
           this.allPosts = data.val();
         });
     },
     writeNewPost() {
-      console.log("in write post");
       const userInput = document.querySelector("input").value;
       document.querySelector("input").value = "";
 
@@ -137,15 +132,11 @@ export default {
         date: new Date().toISOString()
       };
 
-      console.log(postData);
-
-      console.log("before newPostKey");
       let newPostKey = firebase
         .database()
         .ref()
         .child("posts")
         .push().key;
-      console.log("after newPostKey");
 
       // Write the new post's data simultaneously in the posts list and the user's post list.
       let updates = {};
@@ -195,6 +186,6 @@ export default {
 }
 
 .opacity_tool {
-  opacity: .8;
+  opacity: 0.8;
 }
 </style>

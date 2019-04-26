@@ -34,6 +34,7 @@
             </div>
           </div>
         </div>
+        <div class="lds-hourglass d-flex justify-content-center" id="load"></div>
         <div class="match_schedule_container bg-dark mb-3">
           <div
             class="bg-light text-dark p-1"
@@ -115,6 +116,8 @@ export default {
         })
         .then(data => {
           this.tournaments = data;
+          let element = document.getElementById("load");
+          element.classList.remove("lds-hourglass");
         })
         .catch(err => {
           throw err;
@@ -146,7 +149,13 @@ export default {
     },
     formatDate(beginDate) {
       let date = beginDate.substring(0, 10);
-      return (date.substring(9,10) + "/" + date.substring(6,7) + "/" + date.substring(0,4));
+      return (
+        date.substring(9, 10) +
+        "/" +
+        date.substring(6, 7) +
+        "/" +
+        date.substring(0, 4)
+      );
     },
     formatMatchTime(beginDate) {
       const matchTimeFormatA = beginDate.length - 4;

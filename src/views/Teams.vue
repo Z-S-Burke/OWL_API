@@ -1,20 +1,16 @@
 <template>
   <div id="app">
-    <div class="page_background bg-dark text-light p-1">
+    <div class="page_background bg-light text-dark p-1">
       <div>
-        <div>
-          <img
-            class="page_image"
-            src="https://d2y4mhrku00tr3.cloudfront.net/images/pages/about/team-logos-40f002676ef0d61a27cee08d85358575bee03e5b2374f52d2fa1b2b7fb0f061ada398c1c99e32189c64d9628b21b091f939c84ed6066ad179193de6a6305e004.jpg"
-          >
+        <div class="carousel_border">
+          <img class="page_image" src="https://pbs.twimg.com/media/DNqvGfbXkAArLVg.jpg:orig">
         </div>
         <div>
           <a name="#top">
-            <h2 class="py-3 my-2 border-bottom border-warning bg-light text-dark">TEAMS</h2>
+            <h2 class="py-3 my-2 border-bottom border-warning bg-info text-light">TEAMS</h2>
           </a>
         </div>
-        <div class="lds-hourglass" id="load"> 
-        </div>
+        <div class="lds-hourglass d-flex justify-content-center bg-dark" id="load"></div>
         <div class="team_card_media_container">
           <div v-for="team of teams" v-bind:key="team.id">
             <div
