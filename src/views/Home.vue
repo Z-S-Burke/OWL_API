@@ -9,7 +9,6 @@
         controls
         indicators
         background="#ababab"
-        width="100%"
         style="text-shadow: 1px 1px 2px #333;"
         @sliding-start="onSlideStart"
         @sliding-end="onSlideEnd"
@@ -32,7 +31,7 @@
 
         <router-link to="/players">
           <b-carousel-slide
-            img-src="https://i.kinja-img.com/gawker-media/image/upload/s--Fic8xpVD--/c_scale,f_auto,fl_progressive,q_80,w_800/mmadas61b3ke1xgzcdsh.jpg"
+            img-src="https://cdn.gamer-network.net/2018/articles/2018-07-29-11-54/-1532861687779.jpg"
           >
             <caption class="text-light caption_background px-4 d-flex justify-content-center">
               <h2>PLAYERS</h2>
