@@ -78,13 +78,4 @@ export default {}
 .custom_bg_color {
   background-color: rgb(241, 144, 16);
 }
-
-/* @media screen and (min-width: 768px) {
-  #navbar {
-    width: 100vw;
-    position: fixed;
-    z-index: 100;
-    height: 70px;
-  }
-} */
 </style> 

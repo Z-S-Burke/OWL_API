@@ -1,0 +1,75 @@
+@media screen and (max-width: 300px) {
+  .player_card_media_container {
+    display: -ms-flexbox;
+    -ms-flex-direction: row;
+    -ms-flex-wrap: wrap;
+    display: flex;
+    width: 100vw;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .player_card_media_card {
+    width: 33vw;
+    flex: 1;
+    transition: 0.8s opacity;
+  }
+
+  .player_card_media_name {
+    font-size: 18px;
+  }
+
+  .player_card_media_image {
+  }
+
+  #roster_big {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .player_card_media_container {
+    display: -ms-flexbox;
+    -ms-flex-direction: row;
+    -ms-flex-wrap: wrap;
+    display: flex;
+    width: 100vw;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: white;
+  }
+
+  .player_card_media_players_row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 19vw;
+  }
+
+  .player_card_media_card {
+    width: 19vw;
+    flex: 1;
+    transition: 0.8s opacity;
+  }
+
+  .player_card_media_name {
+    font-size: 18px;
+  }
+
+  .player_card_media_roster {
+    font-size: 14px;
+  }
+
+  #roster_small,
+  #teamName {
+    display: none;
+  }
+
+  #roster_big {
+    font-size: 24px;
+    display: inline-block;
+  }

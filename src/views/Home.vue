@@ -56,21 +56,21 @@
       <ul class="p-3">
         <p class="question_text">What is OWL API?</p>
         <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          Tenetur accusantium inventore quae, numquam ipsam quidem illo libero ea vitae
-          fugit illum sint iure aliquid voluptas. Aliquid ipsam ut sed aut.
+          OWL API (Overwatch League Application Programming Interface) is a mobile-first 
+          web app that tracks Overwatch League statistics in real-time, aiming to provide 
+          accurate rosters, match histories, and match schedule for fans. 
         </p>
         <p class="question_text">How does OWL API work?</p>
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-          Incidunt laudantium nulla, ipsam, at recusandae architecto debitis pariatur harum
-          iusto earum illo magni beatae nihil tempora consequatur quia nam a blanditiis.
+          OWL API takes requests a large JSON file from a third-party provider of e-sports 
+          data and breaks it down, page by page, in order to provide a readable, clean, and 
+          attractive format for fans of Blizzard's shooter to track their favorite players. 
         </p>
         <p class="question_text">Where does OWL API get its information?</p>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Officiis corrupti, harum eligendi illo placeat commodi? Ipsam minus illo eligendi eius beatae
-          similique recusandae, dolorem rerum magnam eum nulla labore eos?
+          OWL API uses PandaScore as a data provider. They also support a number of other 
+          popular e-sports titles, games like PlayerUnknown's Battlegrounds, DOTA 2, 
+          League of Legends, and more. 
         </p>
       </ul>
     </div>
@@ -112,7 +112,7 @@ export default {
 
 .splash_image {
   background-size: 1000;
-  background-image: url("https://bobandsuewilliams.com/images/overwatch-art-black-and-white-1.jpg");
+  background-image: url("http://tell-the-world.com/wp-content/uploads/2017/03/1490307692055.jpeg");
 }
 
 @media screen and (min-width: 500px) {
